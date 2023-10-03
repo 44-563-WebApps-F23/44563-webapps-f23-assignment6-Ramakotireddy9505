@@ -21,9 +21,9 @@
         <input type="button" onclick="checkAuthor()" value="Check the guess">
     </form>
 
-
     <p id="result">Right/Wrong ???</p>
 
+    <!--- javascript code for right or wrong guss--->
     <script>
         let good = 0;
         let oops = 0;
@@ -44,6 +44,45 @@
             }
         }
     </script>
+
+
+
+   <!-- images div container-->
+    <div>
+        <img id="image" src="rome.jpg" alt="romecityimage" value="selectImage()" onclick="selectImage()" width="100px" height="100px">
+    </div>
+
+    <!-- images javascript-->
+    <script>
+
+        let useImage = 1;
+
+        function selectImage(){
+            switch (useImage){
+                case 1:
+            image.src="Graden.jpg",alt="gardencityimage",width="100px", height="100px";
+            useImage++;
+            break;
+            case 2:
+            image.src="portland.jpg",alt="portlandcityimage",width="100px", height="100px";
+            useImage++;
+            break;
+            case 3:
+            image.src="rome.jpg",alt="romecityimage",width="100px", height="100px";
+            useImage++;
+            break;
+
+            }
+
+        }
+    </script>
+
+
+
+
+
+
+
 
 </body>
 
