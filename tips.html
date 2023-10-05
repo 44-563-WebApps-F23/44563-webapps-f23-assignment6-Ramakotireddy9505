@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+
+    <h2>shows tip amounts by Ramakotireddy Ragipindi</h2>
+
+    <form>
+        <input type="radio" id="Sum" value="sum" onclick="chooseOp()">
+        <label for="Sum">sum</label>
+        <br>
+        <input type="radio" id="Diff" value="difference" onclick="chooseOp()">
+        <label for="Diff">diff</label>
+        <br>
+        <input type="radio" id="Mult" value="product" onclick="chooseOp()">
+        <label for="Mult">product</label>
+    </form>
+
+    <div id="output"></div>
+
+    <script>
+        //Function to choose operation
+        function chooseOp() {
+            //Get values from previous inputs
+            const compute = parseFloat(document.getElementById('compute').value);
+            const percent = parseFloat(document.getElementById('percent').value);
+
+            //Calculate the result
+            let Operation;
+            let operationName;
+
+            if (document.getElementById("Sum").checked) {
+                Operation = compute + percent;
+                operationName = "sum";
+            } else if (document.getElementById("Diff").checked) {
+                Operation = compute - percent;
+                operationName = "difference";
+            } else if (document.getElementById("Mult").checked) {
+                Operation = compute * percent;
+                operationName = "product";
+            }
+            //Display the output
+            document.getElementById("output").innerHTML = `${operationName} of ${compute} and ${percent}
+            is ${Operation.toFixed(2)}`;
+        }
+    </script>
+
+
+
+    <!-- tips html code-->
+    <label for="compute">Enter base amount</label>
+    <input type="number" id="compute" name="compute" min=10 max=50 step=2 value=50> <br>
+
+    <label for="percent">Enter the tip percent</label>
+    <input type="number" id="percent" name="percent" value=15 autofocus> <br>
+
+    <input type="button" onclick="tips()" value="Show tip">
+
+
+
+    <p id="result"></p>
+
+    <script>
+        let myOutput = "";
+        toShow = "Tips are:";
+        //function for calculate the tip
+        function tips() {
+// getting out put for tips
+            var compute = parseFloat(document.getElementById("compute").value);
+            var percent = parseFloat(document.getElementById("percent").value);
+
+            for (i = 0; i < 5; i++) {
+                var tipValue = (compute * (percent + i * 4)) / 100;
+                toShow += (percent + i * 4) + "% is " + tipValue.toFixed(2) + "; ";
+            }
+            document.getElementById('result').innerHTML = toShow;
+        }
+    </script>
+
+
+
+</body>
+
+</html>

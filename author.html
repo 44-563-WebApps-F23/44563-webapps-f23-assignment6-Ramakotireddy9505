@@ -47,9 +47,10 @@
 
 
 
-   <!-- images div container-->
+    <!-- images div container-->
     <div>
-        <img id="image" src="rome.jpg" alt="romecityimage" value="selectImage()" onclick="selectImage()" width="100px" height="100px">
+        <img id="image" src="rome.jpg" alt="romecityimage" value="selectImage()" onclick="selectImage()" width="100px"
+            height="100px">
     </div>
 
     <!-- images javascript-->
@@ -57,23 +58,21 @@
 
         let useImage = 1;
 
-        function selectImage(){
-            switch (useImage){
+        function selectImage() {
+            switch (useImage) {
                 case 1:
-            image.src="Graden.jpg",alt="gardencityimage",width="100px", height="100px";
-            useImage++;
-            break;
-            case 2:
-            image.src="portland.jpg",alt="portlandcityimage",width="100px", height="100px";
-            useImage++;
-            break;
-            case 3:
-            image.src="rome.jpg",alt="romecityimage",width="100px", height="100px";
-            useImage++;
-            break;
-
+                    image.src = "Graden.jpg", alt = "gardencityimage", width = "100px", height = "100px";
+                    useImage++;
+                    break;
+                case 2:
+                    image.src = "portland.jpg", alt = "portlandcityimage", width = "100px", height = "100px";
+                    useImage++;
+                    break;
+                case 3:
+                    image.src = "rome.jpg", alt = "romecityimage", width = "100px", height = "100px";
+                    useImage++;
+                    break;
             }
-
         }
     </script>
 
