@@ -1,45 +1,86 @@
 <!DOCTYPE html>
 <html>
- <head>
+
+<head>
     <title>
         cruise
     </title>
- </head>
+</head>
+
 <body>
 
-<h2> Ramakotireddy Ragipindi goes on a cruise</h2>
+    <h2> Ramakotireddy Ragipindi goes on a cruise</h2>
+    <div>
+        <form>
+            <label for="checkbox1">Shares Cabin</label>
+            <input type="checkbox" id="checkboxOne" value="True"><br>
 
-<form>
-    <label for="checkbox1">Shares Cabin</label>
-    <input type="checkbox" id="checkboxOne" value="True"><br>
-    
-    <label for="checkbox2">Breakfast</label>
-    <input type="checkbox" id="checkboxTwo" value="True"><br>
-    
-    <label for="checkbox3">Pool Pass</label>
-    <input type="checkbox" id="checkboxThree" value="False"><br>
+            <label for="checkbox2">Breakfast</label>
+            <input type="checkbox" id="checkboxTwo" value="True"><br>
 
-    <button onclick="selectCruise()">Select a Cruise</button>
-</form>
+            <label for="checkbox3">Pool Pass</label>
+            <input type="checkbox" id="checkboxThree" value="False"><br>
 
-<p id="my_cruise"></p>
+            <input type="button" onclick="selectCruise()" value="Select a cruise"><br><br>
+        </form>
+    </div>
+    <div>
+        <form>
 
+            <label for="day">Enter the number of days:</label>
+            <input type="text" id="day" class="form-control" value=days><br><br>
 
-<script> 
-       
+            <label for="price">Enter price:</label>
+            <input type="text" class="form-control" id="price"><br><br>
+
+            <input type="button" onclick="updateCruise()" value="Update the cruise">
+
+        </form>
+    </div>
+
+    <p id="cruiseResults"></p>
+
+    <p id="checkbox-result"></p>
+    <script>
+
         var my_cruise = {};
         function selectCruise() {
-           
+
             my_cruise = {};
 
             // Get the checkbox values and set properties in my_cruise
-            my_cruise.shared = document.getElementById("checkboxOne").checked;
-            my_cruise.breakfast = document.getElementById("checkboxTwo").checked;
-            my_cruise.pool = document.getElementById("checkboxThree").checked;
+            checkboxOneVal = document.getElementById("checkboxOne").checked;
+            checkboxTwoVal = document.getElementById("checkboxTwo").checked;
+            checkboxThreeVal = document.getElementById("checkboxThree").checked;
 
-            document.getElementById("my_cruise").innerHTML = toString(my_cruise);
+
+
+            my_cruise["checkboxOne"] = checkboxOneVal
+            my_cruise["checkboxTwo"] = checkboxTwoVal
+            my_cruise["checkboxThree"] = checkboxThreeVal
+
+            document.getElementById("cruiseResults").innerHTML = "Shares Cabin: " + my_cruise.checkboxOne
+                + ",    " + "Breakfast: " + my_cruise.checkboxTwo + ",    " + "Pool Pass: " + my_cruise.checkboxThree
+
         }
+
+        function updateCruise() {
+            daysVal = document.getElementById("day").value
+            priceVal = document.getElementById("price").value
+
+            my_cruise["day"] = daysVal
+            my_cruise["price"] = priceVal
+
+            document.getElementById("checkbox-result").innerHTML = "Number of days: " + my_cruise.day + "<br>" + "Price: " + my_cruise.price
+        }
+
+
     </script>
 
+
+
+
+
 </body>
-</html> 
+
+</html>
