@@ -18,7 +18,7 @@
         <label for="guess_author">Guess the author </label>
         <input type="text" id="guess_author" name="guess_author" autofocus> <br>
 
-        <input type="button" onclick="checkAuthor()" value="Check the guess">
+        <input id="checkbutton" type="button" onclick="checkAuthor()" value="Check the guess">
     </form>
 
     <p id="result">Right/Wrong ???</p>
@@ -33,6 +33,16 @@
             author_name_guess = document.getElementById("guess_author").value
 
             out = document.getElementById("result")
+
+
+            if (oops >= 7) {
+                document.getElementById("checkbutton").onclick = outofguess();
+            }
+            function outofguess() {
+                document.getElementById("checkbutton").disable = true;
+                alert("Sorry, ran out of guesses")
+            }
+
             if (hidden_author_name == author_name_guess) {
                 good = good + 1;
                 alert("You got it right");
@@ -75,6 +85,10 @@
             }
         }
     </script>
+
+
+
+
 
 
 
