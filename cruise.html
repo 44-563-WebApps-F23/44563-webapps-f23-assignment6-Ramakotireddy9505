@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>
+        cruise
+    </title>
+ </head>
+<body>
+
+<h2> Ramakotireddy Ragipindi goes on a cruise</h2>
+
+<form>
+    <label for="checkbox1">Shares Cabin</label>
+    <input type="checkbox" id="checkboxOne" value="True"><br>
+    
+    <label for="checkbox2">Breakfast</label>
+    <input type="checkbox" id="checkboxTwo" value="True"><br>
+    
+    <label for="checkbox3">Pool Pass</label>
+    <input type="checkbox" id="checkboxThree" value="False"><br>
+
+    <button onclick="selectCruise()">Select a Cruise</button>
+</form>
+
+<p id="my_cruise"></p>
+
+
+<script> 
+       
+        var my_cruise = {};
+        function selectCruise() {
+           
+            my_cruise = {};
+
+            // Get the checkbox values and set properties in my_cruise
+            my_cruise.shared = document.getElementById("checkboxOne").checked;
+            my_cruise.breakfast = document.getElementById("checkboxTwo").checked;
+            my_cruise.pool = document.getElementById("checkboxThree").checked;
+
+            document.getElementById("my_cruise").innerHTML = toString(my_cruise);
+        }
+    </script>
+
+</body>
+</html> 
